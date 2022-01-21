@@ -11,18 +11,20 @@ emitter.on('start', (date) => {
     
       var now = new Date().getTime();
     
-      var distance = countDownDate - now;
+      var distance = countDownDate - now; 
     
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+
       console.log(`${days}d : ${hours}h : ${minutes}m : ${seconds}s `);
-    
-    if(distance <= 0) {
-      emitter.emit('end', 'Время закончилось' )
-    }
+      
+
+      if(distance <= 0) {
+        emitter.emit('end', 'Время закончилось' )
+      }
+  
     },1000)
 }
 );
